@@ -5,7 +5,7 @@ import BtnSecondaryWithicon from "../button/BtnSecondaryWithIcon";
 import InfoIcon from "/public/assets/icon/information-outline.svg?react";
 import VolumeOff from "/public/assets/icon/volume-off.svg?react";
 
-const CardFilmHero: FC<FilmCards> = ({ id, title, banner }) => {
+const CardFilmHero: FC<FilmCards> = ({ id, title, banner,description }) => {
   return (
     <div className="col-span-full">
       <div data-id={id} className="w-full relative">
@@ -18,10 +18,7 @@ const CardFilmHero: FC<FilmCards> = ({ id, title, banner }) => {
             {title}
           </h1>
           <p className="w-full sm:w-8/12 md:w-6/12 lg:w-5/12 text-sm sm:text-sm lg:text-p font-normal font-myFont text-white line-clamp-2 sm:line-clamp-3 lg:line-clamp-3">
-            Sebuah benda tak dikenal mengambil alih dunia. Dalam keputusasaan,
-            Departemen Pertahanan mulai merekrut lebih banyak tentara,termasuk
-            siswa sekolah menengah. Mereka pun segera menjadi pejuang garis
-            depan dalam perang.
+            {description}
           </p>
           <div className="w-full flex">
             <div className="flex mt-5 sm:mt-5 lg:mt-8 gap-2 sm:gap-2 lg:gap-4 mr-auto">
