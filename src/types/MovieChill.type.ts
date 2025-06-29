@@ -3,7 +3,8 @@ import {SVGProps } from "react";
 export interface FilmCards {
   id: string;
   title?: string;
-  thumbnail?: string;
+  thumbnailLandscape?: string;
+  thumbnailPotrait?: string;
   alt?:string;
   banner: string;
   description?: string;

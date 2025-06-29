@@ -14,7 +14,7 @@ const RewatchSection = () => {
     const nextRef = useRef<HTMLButtonElement>(null);
     const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(null);
     const [isMobile, setIsMobile] = useState(false);
-    const film = useFilmChillStore((state) => state.film);
+    const rewatchFilm = useFilmChillStore((state) => state.rewatchFilm);
 
     useEffect(() => {
         const handleDeviceSize = () => {
@@ -87,7 +87,7 @@ const RewatchSection = () => {
                         }}
                         className="swipper-wrapper relative rounded-lg flex gap-4 w-full sm:overflow-x-hidden lg:overflow-x-hidden"
                     >
-                        {film.map((RewatchItem) => (
+                        {rewatchFilm.map((RewatchItem) => (
                             <SwiperSlide key={RewatchItem.id}>
                                 <CardFilmLandscape
                                     {...RewatchItem}

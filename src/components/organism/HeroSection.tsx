@@ -1,20 +1,19 @@
 import CardFilmHero from "../atoms/card/CardFilmHero";
 import { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation, Autoplay} from "swiper/modules";
 import { Swiper as SwiperClass } from "swiper";
 import useFilmChillStore from "../../store/movieStore";
-import PrevIcon from "/public/assets/icon/arrow-left.svg?react";
-import NextIcon from "/public/assets/icon/arrow-right.svg?react";
+
 
 
 const HeroSection = () => {
 
-  const prevRef = useRef<HTMLButtonElement>(null);
+    const prevRef = useRef<HTMLButtonElement>(null);
     const nextRef = useRef<HTMLButtonElement>(null);
     const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(null);
     const [isMobile, setIsMobile] = useState(false);
-    const film = useFilmChillStore((state) => state.film);
+    const top10film = useFilmChillStore((state) => state.top10Film);
     
       useEffect(() => {
         const handleDeviceSize = () => {
@@ -41,27 +40,13 @@ const HeroSection = () => {
 
     return (
         <section>
-            <div className="px-8 py-8 sm:py-10 lg:py-16 sm:px-10 lg:px-16 overflow-x-hidden relative">
-            <div className="w-full mx-auto pt-20">
-                <button
-                    ref={prevRef}
-                    className="absolute items-center top-4/8 sm:translate-y-2 md:translate-y-3 lg:translate-y-4 sm:left-5 sm:z-10 md:left-5 lg:left-10 text-center sm:text-2xl sm:text-white sm:bg-gray-800 sm:hover:bg-secondary sm:cursor-pointer sm:border-1 sm:border-gray-600 sm:rounded-full sm:px-2 sm:py-2 md:px-2 md:py-2 lg:px-3 lg:py-3"
-                    aria-label="Previous"
-                >
-                    <PrevIcon className="w-7 h-7 text-white hidden sm:block md:block lg:block xl:block" />
-                </button>
-
-                <button
-                    ref={nextRef}
-                    className="absolute items-center top-4/8 sm:translate-y-2 md:translate-y-3 lg:translate-y-4 sm:right-5 md:right-5 lg:right-10 text-center sm:z-10 sm:text-2xl sm:text-white sm:bg-gray-800 sm:hover:bg-secondary sm:cursor-pointer sm:border-1 sm:border-gray-600 sm:rounded-full sm:px-2 sm:py-2 md:px-2 md:py-2 lg:px-3 lg:py-3"
-                    aria-label="Next"
-                >
-                    <NextIcon className="w-7 h-7 text-white hidden sm:block md:block lg:block xl:block" />
-                </button>
-                <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <div className="overflow-x-hidden relative">
+            <div className="w-full mx-auto pt-20 ">
+                
+                <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="group relative">
+                
                     <Swiper
                         modules={[Navigation, Autoplay]}
-                        spaceBetween={20}
                         slidesPerView={1}
                         loop={true}
                         autoplay={!isMobile ? { delay: 3000 } : false}
@@ -75,9 +60,9 @@ const HeroSection = () => {
                                 swiper.params.navigation.nextEl = nextRef.current;
                             }
                         }}
-                        className="swipper-wrapper relative rounded-lg flex gap-4 w-full sm:overflow-x-hidden lg:overflow-x-hidden"
+                        className="swipper-wrapper relative flex gap-4 w-full sm:overflow-x-hidden lg:overflow-x-hidden"
                     >
-                        {film.map((HeroItems) => (
+                        {top10film.map((HeroItems) => (
                             <SwiperSlide key={HeroItems.id}>
                                 <CardFilmHero
                                     {...HeroItems}
