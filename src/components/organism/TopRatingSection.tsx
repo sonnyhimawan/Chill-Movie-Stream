@@ -46,7 +46,7 @@ const TopRatingSection = () => {
     return (
         <section>
             <div className="px-8 py-8 sm:py-10 lg:py-16 sm:px-10 lg:px-16 overflow-x-hidden relative bg-background">
-                <h1 className="text-1xl sm:text-3xl md:text-3xl lg:text-4xl font-bold font-myFont text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8">
+                <h1 className="text-1xl sm:text-3xl md:text-3xl lg:text-4xl font-bold font-myFont text-white">
                     Top Rating Film dan Series Hari ini
                 </h1>
 
@@ -65,7 +65,7 @@ const TopRatingSection = () => {
                 >
                     <NextIcon className="w-7 h-7 text-white hidden sm:block md:block lg:block xl:block" />
                 </button>
-                <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="py-10 relative overflow-x-hidden overflow-y-hidden">
                     <Swiper
                         modules={[Navigation, Autoplay]}
                         spaceBetween={20}
@@ -89,10 +89,10 @@ const TopRatingSection = () => {
                                 swiper.params.navigation.nextEl = nextRef.current;
                             }
                         }}
-                        className="swipper-wrapper relative rounded-lg flex gap-4 w-full sm:overflow-x-hidden lg:overflow-x-hidden"
+                        className="relative !overflow-visible rounded-lg flex gap-4 w-full sm:overflow-x-hidden lg:overflow-x-hidden"
                     >
                         {trendingFilm.map((TopRatingItem) => (
-                            <SwiperSlide key={TopRatingItem.id}>
+                            <SwiperSlide key={TopRatingItem.id} className="!overflow-visible relative z-0 hover:z-[999]">
                                 <CardFilmPotrait
                                     {...TopRatingItem}
                                 />
