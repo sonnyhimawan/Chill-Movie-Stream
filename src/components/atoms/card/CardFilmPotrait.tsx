@@ -15,9 +15,6 @@ const CardFilmPotrait: FC<FilmCards> = ({ id, alt, thumbnailPotrait, isTop10, th
 
   }
 
-
-
-
   return (
     <div data-id={id} className="group relative hover:cursor-pointer">
       <div className="relative swiper-slide rounded-lg">
@@ -44,7 +41,7 @@ const CardFilmPotrait: FC<FilmCards> = ({ id, alt, thumbnailPotrait, isTop10, th
       <div className="absolute z-10 left-1/2 -translate-x-1/2 top-[-20px] w-[280px] h-[360px] lg:left-1/2 lg:-translate-x-1/2 lg:top-[-28px] lg:w-[300px] lg:h-[370px] xl:left-1/2 xl:-translate-x-1/2 xl:top-[-30px] xl:w-[300px] xl:h-[380px] 2xl:left-1/2 2xl:-translate-x-1/2 2xl:top-[-20px] 2xl:w-[440px] 2xl:h-[548px] group-hover:opacity-100 opacity-0 pointer-events-none transition-all duration-300 bg-background rounded-lg drop-shadow-xl/70 drop-shadow-gray-500/25 overflow-hidden hover:cursor-pointer">
         <img
           src={thumbnailLandscape}
-          className="w-full h-[55%] object-cover"
+          className="w-full object-cover"
         />
         <div className="p-10">
           <div className="flex gap-4">
