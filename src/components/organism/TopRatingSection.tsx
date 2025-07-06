@@ -49,7 +49,6 @@ const TopRatingSection = () => {
                 <h1 className="text-1xl sm:text-3xl md:text-3xl lg:text-4xl font-bold font-myFont text-white">
                     Top Rating Film dan Series Hari ini
                 </h1>
-
                 <button
                     ref={prevRef}
                     className="absolute items-center top-4/8 sm:translate-y-2 md:translate-y-3 lg:translate-y-4 sm:left-5 sm:z-10 md:left-5 lg:left-10 text-center sm:text-2xl sm:text-white sm:bg-gray-800 sm:hover:bg-secondary sm:cursor-pointer sm:border-1 sm:border-gray-600 sm:rounded-full sm:px-2 sm:py-2 md:px-2 md:py-2 lg:px-3 lg:py-3"
@@ -65,7 +64,7 @@ const TopRatingSection = () => {
                 >
                     <NextIcon className="w-7 h-7 text-white hidden sm:block md:block lg:block xl:block" />
                 </button>
-                <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="py-10 relative overflow-x-hidden overflow-y-hidden">
+                <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="py-4 sm:py-6 md:py-8 lg:py-10 relative overflow-x-hidden overflow-y-hidden">
                     <Swiper
                         modules={[Navigation, Autoplay]}
                         spaceBetween={20}

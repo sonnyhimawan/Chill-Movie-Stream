@@ -44,11 +44,10 @@ const TopTrendingSection = () => {
     
     return (
         <section>
-            <div className="px-8 py-8 sm:py-10 lg:py-16 sm:px-10 lg:px-16 overflow-x-hidden relative bg-background">
-                <h1 className="text-1xl sm:text-3xl md:text-3xl lg:text-4xl font-bold font-myFont text-white mb-4 sm:mb-5 md:mb-6 lg:mb-8">
-                    Film Trending
+          <div className="px-8 py-8 sm:py-10 lg:py-16 sm:px-10 lg:px-16 overflow-x-hidden relative bg-background">
+                <h1 className="text-1xl sm:text-3xl md:text-3xl lg:text-4xl font-bold font-myFont text-white">
+                   Film Trending
                 </h1>
-
                 <button
                     ref={prevRef}
                     className="absolute items-center top-4/8 sm:translate-y-2 md:translate-y-3 lg:translate-y-4 sm:left-5 sm:z-10 md:left-5 lg:left-10 text-center sm:text-2xl sm:text-white sm:bg-gray-800 sm:hover:bg-secondary sm:cursor-pointer sm:border-1 sm:border-gray-600 sm:rounded-full sm:px-2 sm:py-2 md:px-2 md:py-2 lg:px-3 lg:py-3"
@@ -64,13 +63,13 @@ const TopTrendingSection = () => {
                 >
                     <NextIcon className="w-7 h-7 text-white hidden sm:block md:block lg:block xl:block" />
                 </button>
-                <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                 <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="py-4 sm:py-6 md:py-8 lg:py-10 relative overflow-x-hidden overflow-y-hidden">
                     <Swiper
                         modules={[Navigation, Autoplay]}
                         spaceBetween={20}
                         slidesPerView={1.2}
-                        autoplay={!isMobile ? { delay: 3000 } : false}
                         loop={true}
+                        autoplay={!isMobile ? { delay: 3000 } : false}
                         breakpoints={{
                             375: { slidesPerView: 2.2 },
                             640: { slidesPerView: 2.4 },
@@ -88,12 +87,12 @@ const TopTrendingSection = () => {
                                 swiper.params.navigation.nextEl = nextRef.current;
                             }
                         }}
-                        className="swipper-wrapper relative rounded-lg flex gap-4 w-full sm:overflow-x-hidden lg:overflow-x-hidden"
+                        className="relative !overflow-visible rounded-lg flex gap-4 w-full sm:overflow-x-hidden lg:overflow-x-hidden"
                     >
-                        {top10Film.map((Top10Item) => (
-                            <SwiperSlide key={Top10Item.id}>
+                        {top10Film.map((top10Item) => (
+                            <SwiperSlide key={top10Item.id} className="!overflow-visible relative z-0 hover:z-[999]">
                                 <CardFilmPotrait
-                                    {...Top10Item}
+                                    {...top10Item}
                                 />
                             </SwiperSlide>
                         ))}
