@@ -1,9 +1,9 @@
 export interface UserChill {
         id: number;
-        name?: string | null;
+        name?: string;
         username:string;
         email:string ;
-        avatar?:string | null;
+        avatar?:string;
         password:string;
         membership?:string;
 }
