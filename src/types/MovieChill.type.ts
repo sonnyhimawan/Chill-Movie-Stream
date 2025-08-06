@@ -20,6 +20,7 @@ export interface FilmCards {
   director?: string[];
   episodeCount?: number;
   icon?: React.FC<SVGProps<SVGSVGElement>>;
+  onVideoEnd?: () => void;
 
 }
 

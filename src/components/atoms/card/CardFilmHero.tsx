@@ -6,7 +6,7 @@ import InfoIcon from "/public/assets/icon/information-outline.svg?react";
 import VolumeOff from "/public/assets/icon/volume-off.svg?react";
 import VolumeOn from "/public/assets/icon/volume-on.svg?react";
 
-const CardFilmHero: FC<FilmCards> = ({ id, title, banner, description, ageRating }) => {
+const CardFilmHero: FC<FilmCards> = ({ id, title, banner, description, ageRating,onVideoEnd }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [volume, setVolume] = useState(true);
 
@@ -29,9 +29,9 @@ const CardFilmHero: FC<FilmCards> = ({ id, title, banner, description, ageRating
         ref={videoRef}
         autoPlay
         muted
-        loop
         playsInline
         src={banner}
+        onEnded={onVideoEnd}
         className="absolute inset-0 w-full h-full object-cover"
       />
 
