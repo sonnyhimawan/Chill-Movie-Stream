@@ -5,7 +5,7 @@ import Home from "../src/Pages/Home";
 import Membership from "../src/Pages/Membership";
 import Profil from "../src/Pages/Profil";
 import DaftarSaya from "../src/Pages/Profil";
-import ProtectedRoute from "../src/components/protected/protectedroutes";
+import ProtectedRoute from "../src/components/protected/Protectedroutes";
 
 
 
