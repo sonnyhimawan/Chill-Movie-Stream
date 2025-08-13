@@ -1,7 +1,7 @@
 import CardFilmHero from "../atoms/card/CardFilmHero";
 import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
 import { Swiper as SwiperClass } from "swiper";
 import useFilmChillStore from "../../store/movieStore";
 
@@ -14,20 +14,28 @@ const HeroSection = () => {
 
   const top10film = useFilmChillStore((state) => state.top10Film);
 
-
-
   return (
     <section>
       <div className="overflow-x-hidden relative">
         <div className="w-full mx-auto pt-20 ">
-          <div
-            className="group relative"
-          >
+          <div className="group relative">
             <Swiper
-              modules={[Navigation, Autoplay]}
+              modules={[Navigation, Pagination]}
+              loop
               slidesPerView={1}
-              loop={true}
-              autoplay={false}
+              pagination={{
+                clickable: true,
+                enabled: false,
+                
+              }}
+              breakpoints={{
+                1020: {
+                  pagination: {
+                    clickable: true,
+                    enabled: true,
+                  },
+                },
+              }}
               onSwiper={(swiper) => setSwiperInstance(swiper)}
               onBeforeInit={(swiper) => {
                 if (

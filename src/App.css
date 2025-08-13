@@ -7,5 +7,29 @@
 --color-primary:#0F1E93;
 --color-secondary:#3D4142;
 --color-background:#181A1C;
+--color-LightPrimary:#3254FF;
 
+}
+
+.swiper-pagination-bullet {
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 8px;
+  height: 8px;
+  margin: 0 1px;
+  opacity: 1;
+  transition: background-color 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #0F1E93;
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  width: auto;
+  text-align: left;
+  padding-left: 4rem;
+  z-index: 10;
 }

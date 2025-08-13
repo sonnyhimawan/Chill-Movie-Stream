@@ -6,7 +6,7 @@ import PremiumIcon from "/public/assets/icon/star.svg?react";
 import LogoutIcon from "/public/assets/icon/Logout.svg?react";
 import LoginIcon from "/public/assets/icon/Login.svg?react";
 import BtnPrimary from "../atoms/button/BtnPrimaryWithIcon";
-import useAuthStore from "../../store/authsotre";
+import useAuthStore from "../../store/authstore";
 
 const Navbar = () => {
   const [isOpen, SetIsopen] = useState(false);
@@ -50,90 +50,92 @@ const Navbar = () => {
           <li className="text-white hover:text-gray-400 font-myfont">
             <Link to="/Film">Film</Link>
           </li>
-          <li className="text-white hover:text-gray-400 font-myfont">
-            <Link to="/DaftarSaya">Daftar Saya</Link>
-          </li>
+          {user && (
+            <li className="text-white hover:text-gray-400 font-myfont">
+              <Link to="/DaftarSaya">Daftar Saya</Link>
+            </li>
+          )}
         </ul>
 
         {user ? (
-        <div className="relative">
-          <BtnPrimary
-            type="button"
-            className="flex items-center gap-2 sm:gap-4 cursor-pointer"
-            onClick={handleUserMenu}
-          >
-            <img
-              src={user?.avatar || "assets/img/user.png"}
-              alt="user account"
-              className="w-8 lg:w-10"
-            />
-            <DownIcon
-              className={`transition-transform duration-300 ${
-                isOpen ? "-rotate-180" : "rotate-0"
-              }`}
-            />
-          </BtnPrimary>
+          <div className="relative">
+            <BtnPrimary
+              type="button"
+              className="flex items-center gap-2 sm:gap-4 cursor-pointer"
+              onClick={handleUserMenu}
+            >
+              <img
+                src={user?.avatar || "assets/img/user.png"}
+                alt="user account"
+                className="w-8 lg:w-10"
+              />
+              <DownIcon
+                className={`transition-transform duration-300 ${
+                  isOpen ? "-rotate-180" : "rotate-0"
+                }`}
+              />
+            </BtnPrimary>
 
-          {isOpen && (
-            <div className="absolute right-0 bg-chill border border-gray-600 rounded-md w-40 mt-4 shadow-2xl bg-background">
-              <Link
-                to="#"
-                className="w-full font-myfont text-white text-sm flex items-center font-medium p-3 gap-3 rounded-t hover:rounded-t-md hover:bg-secondary/30"
-              >
-                <AccountIcon />
-                <span>Profil Saya</span>
-              </Link>
-              <Link
-                to="#"
-                className="w-full font-myfont text-white text-sm flex items-center font-medium p-3 gap-3 hover:bg-secondary/30"
-              >
-                <PremiumIcon />
-                <span>Ubah Premium</span>
-              </Link>
-
-              <BtnPrimary
-            type="button"
-            className="w-full font-myfont text-white text-sm flex items-center font-medium p-3 gap-3 hover:bg-btn-secondary-hover rounded-b hover:rounded-b-md hover:bg-secondary/30 cursor-pointer"
-            onClick={handleLogout}
-          >
-              <LogoutIcon />
-                <span>Keluar</span>
-          </BtnPrimary>
-            </div>
-          )}
-        </div>
-        ) : (
-<div className="relative">
-          <BtnPrimary
-            type="button"
-            className="flex items-center gap-2 sm:gap-4 cursor-pointer"
-            onClick={handleUserMenu}
-          >
-            <img
-              src={"assets/img/user.png"}
-              alt="user account"
-              className="w-8 lg:w-10"
-            />
-            <DownIcon
-              className={`transition-transform duration-300 ${
-                isOpen ? "-rotate-180" : "rotate-0"
-              }`}
-            />
-          </BtnPrimary>
-                
-          {isOpen && (
+            {isOpen && (
               <div className="absolute right-0 bg-chill border border-gray-600 rounded-md w-40 mt-4 shadow-2xl bg-background">
-        <Link
-          to="/login"
-          className="w-full font-myfont text-white text-sm flex items-center font-medium p-3 gap-3 hover:bg-btn-secondary-hover rounded-b hover:rounded-b-md hover:bg-secondary/30"
-        >
-          <LoginIcon />
-          <span>Login</span>
-        </Link>
-      </div>
-    )}
-  </div>
-)}
+                <Link
+                  to="/Profil"
+                  className="w-full font-myfont text-white text-sm flex items-center font-medium p-3 gap-3 rounded-t hover:rounded-t-md hover:bg-secondary/30"
+                >
+                  <AccountIcon />
+                  <span>Profil Saya</span>
+                </Link>
+                <Link
+                  to="/Membership"
+                  className="w-full font-myfont text-white text-sm flex items-center font-medium p-3 gap-3 hover:bg-secondary/30"
+                >
+                  <PremiumIcon />
+                  <span>Ubah Premium</span>
+                </Link>
+
+                <BtnPrimary
+                  type="button"
+                  className="w-full font-myfont text-white text-sm flex items-center font-medium p-3 gap-3 hover:bg-btn-secondary-hover rounded-b hover:rounded-b-md hover:bg-secondary/30 cursor-pointer"
+                  onClick={handleLogout}
+                >
+                  <LogoutIcon />
+                  <span>Keluar</span>
+                </BtnPrimary>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="relative">
+            <BtnPrimary
+              type="button"
+              className="flex items-center gap-2 sm:gap-4 cursor-pointer"
+              onClick={handleUserMenu}
+            >
+              <img
+                src={"assets/img/user.png"}
+                alt="user account"
+                className="w-8 lg:w-10"
+              />
+              <DownIcon
+                className={`transition-transform duration-300 ${
+                  isOpen ? "-rotate-180" : "rotate-0"
+                }`}
+              />
+            </BtnPrimary>
+
+            {isOpen && (
+              <div className="absolute right-0 bg-chill border border-gray-600 rounded-md w-40 mt-4 shadow-2xl bg-background">
+                <Link
+                  to="/login"
+                  className="w-full font-myfont text-white text-sm flex items-center font-medium p-3 gap-3 hover:bg-btn-secondary-hover rounded-b hover:rounded-b-md hover:bg-secondary/30"
+                >
+                  <LoginIcon />
+                  <span>Login</span>
+                </Link>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </nav>
   );

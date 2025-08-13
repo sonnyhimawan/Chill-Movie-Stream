@@ -6,7 +6,7 @@ export interface FormProps {
     id : string;
     name : string;
     placeholder : string;
-    type: "password" | "date" | "text" | "email";
+    type: "password" | "date" | "text" | "email" | "file";
     value? : string;
     onChange? : (e: React.ChangeEvent<HTMLInputElement>) => void;
     icon?: React.FC<SVGProps<SVGSVGElement>>;

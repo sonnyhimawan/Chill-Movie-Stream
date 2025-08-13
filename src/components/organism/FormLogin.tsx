@@ -5,7 +5,7 @@ import FormInputWithicon from "../atoms/form/FormInputTextWithIcon";
 import ForminputWithouticon from "../atoms/form/FormInputTextWithoutIcon";
 import BtnSecondaryWithouticon from "../atoms/button/BtnSecondaryWithoutIcon";
 import BtnTertiaryWithicon from "../atoms/button/BtnTertiaryWithIcon";
-import useAuthStore from "../../store/authsotre";
+import useAuthStore from "../../store/authstore";
 
 const LoginForm = () => {
   const { login, isLoading } = useAuthStore();

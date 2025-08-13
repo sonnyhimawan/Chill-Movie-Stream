@@ -15,9 +15,9 @@ const CardFilmPotrait: FC<FilmCards> = ({
   genre,
   isNewEpisode,
 }) => {
-  const HandlePlay = () => { };
+  const HandlePlay = () => {};
 
-  const HandleAdd = () => { };
+  const HandleAdd = () => {};
 
   return (
     <div data-id={id} className="group relative hover:cursor-pointer">
@@ -82,7 +82,9 @@ const CardFilmPotrait: FC<FilmCards> = ({
               </span>
             ))}
             {genre && genre.length > 8 && (
-              <span className="text-white text-lg font-myfont font-medium py-1.5">...</span>
+              <span className="text-white text-lg font-myfont font-medium py-1.5">
+                ...
+              </span>
             )}
           </div>
         </div>
