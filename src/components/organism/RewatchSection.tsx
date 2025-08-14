@@ -87,13 +87,15 @@ const RewatchSection = () => {
                         }}
                         className="swipper-wrapper relative rounded-lg flex gap-4 w-full sm:overflow-x-hidden lg:overflow-x-hidden"
                     >
-                        {rewatchFilm.map((RewatchItem) => (
-                            <SwiperSlide key={RewatchItem.id}>
-                                <CardFilmLandscape
-                                    {...RewatchItem}
-                                />
-                            </SwiperSlide>
-                        ))}
+                        {Array.isArray(rewatchFilm) && rewatchFilm.length > 0 ? (
+  rewatchFilm.map((rewatchItem) => (
+    <SwiperSlide key={rewatchItem.id}>
+      <CardFilmLandscape {...rewatchItem} />
+    </SwiperSlide>
+  ))
+) : (
+    <p className="text-center text-white py-6 font-myfont">Loading.</p>
+)}
                     </Swiper>
                 </div>
             </div>

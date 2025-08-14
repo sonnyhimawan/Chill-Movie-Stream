@@ -52,7 +52,7 @@ const Navbar = () => {
           </li>
           {user && (
             <li className="text-white hover:text-gray-400 font-myfont">
-              <Link to="/DaftarSaya">Daftar Saya</Link>
+              <Link to="/Daftarsaya">Daftar Saya</Link>
             </li>
           )}
         </ul>

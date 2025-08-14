@@ -48,16 +48,21 @@ const HeroSection = () => {
               }}
               className="swipper-wrapper relative flex gap-4 w-full sm:overflow-x-hidden lg:overflow-x-hidden"
             >
-              {top10film.map((HeroItems) => (
-                <SwiperSlide key={HeroItems.id}>
-                  <CardFilmHero
-                    {...HeroItems}
-                    onVideoEnd={() => {
-                      swiperInstance?.slideNext();
-                    }}
-                  />
-                </SwiperSlide>
-              ))}
+              
+              {Array.isArray(top10film) && top10film.length > 0 ? (
+                top10film.map((heroItems) => (
+                  <SwiperSlide key={heroItems.id}>
+                    <CardFilmHero
+                      {...heroItems}
+                      onVideoEnd={() => {
+                        swiperInstance?.slideNext();
+                      }}
+                    />
+                  </SwiperSlide>
+                ))
+              ) : (
+                <p className="text-center text-white py-6 font-myfont">Loading.</p>
+              )}
             </Swiper>
           </div>
         </div>

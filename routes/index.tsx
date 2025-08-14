@@ -4,7 +4,7 @@ import Login from "../src/Pages/Login";
 import Home from "../src/Pages/Home";
 import Membership from "../src/Pages/Membership";
 import Profil from "../src/Pages/Profil";
-import DaftarSaya from "../src/Pages/Profil";
+import Daftarsaya from "../src/Pages/Daftarsaya";
 import ProtectedRoute from "../src/components/protected/Protectedroutes";
 
 
@@ -39,8 +39,8 @@ export const router = createBrowserRouter([
         element: <Profil />,
       },
       {
-        path: "/DaftarSaya",
-        element: <DaftarSaya />,
+        path: "/Daftarsaya",
+        element: <Daftarsaya />,
       },
     ],
   },

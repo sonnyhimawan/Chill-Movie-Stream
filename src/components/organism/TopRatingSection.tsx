@@ -90,13 +90,15 @@ const TopRatingSection = () => {
                         }}
                         className="relative !overflow-visible rounded-lg flex gap-4 w-full sm:overflow-x-hidden lg:overflow-x-hidden"
                     >
-                        {trendingFilm.map((TopRatingItem) => (
-                            <SwiperSlide key={TopRatingItem.id} className="!overflow-visible relative z-0 hover:z-[999]">
-                                <CardFilmPotrait
-                                    {...TopRatingItem}
-                                />
-                            </SwiperSlide>
-                        ))}
+                       {Array.isArray(trendingFilm) && trendingFilm.length > 0 ? (
+  trendingFilm.map((trendingItem) => (
+    <SwiperSlide key={trendingItem.id} className="!overflow-visible relative z-0 hover:z-[999]">
+      <CardFilmPotrait {...trendingItem} />
+    </SwiperSlide>
+  ))
+) : (
+    <p className="text-center text-white py-6 font-myfont">Loading.</p>
+)}
                     </Swiper>
                 </div>
             </div>

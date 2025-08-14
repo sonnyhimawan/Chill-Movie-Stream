@@ -2,15 +2,12 @@
 import HomeLayout from "../Layout/HomeLayout";
 
 
-const DaftarSaya = () => {
+const Daftarsaya = () => {
 
   return (
     <HomeLayout>
-        <div className="">
-            <h1>dadasd</h1>
-        </div>
     </HomeLayout>
   );
 };
 
-export default DaftarSaya;
+export default Daftarsaya;
